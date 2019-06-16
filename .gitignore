@@ -4,3 +4,6 @@
 
 # MacOs
 .DS_Store
+
+# Docker
+**/volumes/
