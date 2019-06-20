@@ -20,4 +20,8 @@ services:
       WORDPRESS_DB_USER: exampleuser
       WORDPRESS_DB_PASSWORD: examplepass
       WORDPRESS_DB_NAME: exampledb
+  nginx:
+    image: nginx
+    ports:
+      - 10091:80
 

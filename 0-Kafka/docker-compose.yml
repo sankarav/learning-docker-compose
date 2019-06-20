@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  zoo:
+    image: zookeeper:3.4.14
+    hostname: zoo
+    container_name: zoo
+#    ports:
+#      - 2181:2181
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888
+  kafka:
+    image: 'sankar/kafka:01'
+    hostname: kafka
+    container_name: kafka
+    depends_on:
+      - zoo
+  producer:
+    image: 'sankar/producer:01'
+    container_name: producer
+  consumer:
+    image: 'sankar/consumer:01'
+    container_name: consumer
+  nginx:
+    image: nginx
+    container_name: nginx
